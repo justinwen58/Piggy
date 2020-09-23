@@ -61,7 +61,7 @@ class Piggy(PiggyParent):
         # TODO: check to see if it's safe before dancing
         
         for x in range(3):
-            self.example_move()
+            self.shake()
             # call other dance moves
 
     def safe_to_dance(self):
@@ -76,6 +76,9 @@ class Piggy(PiggyParent):
         self.servo(1000) # look right
         time.sleep(.25) # give your head time to move
         self.servo(2000) # look left
+
+    def shake(self):
+        self.deg_fwd(720)
 
     def scan(self):
         """Sweep the servo and populate the scan_data dictionary"""
