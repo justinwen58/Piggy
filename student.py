@@ -60,7 +60,7 @@ class Piggy(PiggyParent):
         """A higher-ordered algorithm to make your robot dance"""
         # TODO: check to see if it's safe before dancing
         
-        for x in range(3):
+        for x in range(2):
             self.shake()
             # call other dance moves
 
@@ -79,6 +79,22 @@ class Piggy(PiggyParent):
 
     def shake(self):
         self.deg_fwd(720)
+        for x in range(5):
+            self.fwd()
+            time.sleep(0.3)
+            self.stop()
+            b = 0
+            c = 0
+            self.right(primary=90 + b, counter=-90 - c)
+            self.left(primary=-90 - b, counter=90 + c)
+            b += 45
+            c -= 45
+            self.back()
+            time.sleep(0.3)
+            self.stop()
+
+    def mainmove(self):
+        self.
 
     def scan(self):
         """Sweep the servo and populate the scan_data dictionary"""
