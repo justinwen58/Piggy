@@ -78,18 +78,20 @@ class Piggy(PiggyParent):
         self.servo(2000) # look left
 
     def shake(self):
-        for x in range(5):
+        for x in range(4):
             self.fwd()
+            time.sleep(0.3)
+            self.stop()
+            self.right(primary=360, counter =-360)
+            self.back()
             time.sleep(0.3)
             self.stop()
             b = 0
             c = 0
             self.right(primary=90 + b, counter=-90 - c)
-            b += 45
-            c -= 45
-            self.back()
-            time.sleep(0.3)
-            self.stop()
+            b += 90
+            c -= 90
+           
 
     def run(self):
         self.fwd()
