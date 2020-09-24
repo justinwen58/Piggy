@@ -77,9 +77,7 @@ class Piggy(PiggyParent):
         time.sleep(.25) # give your head time to move
         self.servo(2000) # look left
 
-    def stylemove(self):
-
-
+   
     def shake(self):
         for x in range(4):
             self.fwd()
