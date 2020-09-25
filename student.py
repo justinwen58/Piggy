@@ -62,6 +62,7 @@ class Piggy(PiggyParent):
         
         for x in range(1):
             self.stylemove()
+            self.gangnamstyle()
             # call other dance moves
 
     def safe_to_dance(self):
@@ -78,20 +79,24 @@ class Piggy(PiggyParent):
         self.servo(2000) # look left
 
    
-    def shake(self):
+    def gangnamstyle(self):
         for x in range(4):
             self.fwd()
             time.sleep(0.3)
             self.stop()
+            self.servo(1000)
+            time.sleep(.1) 
+            self.servo(2000)
+            time.sleep(.1) 
             self.right(primary=360, counter =-360)
+            time.sleep (4)
+            self.stop()
             self.back()
             time.sleep(0.3)
             self.stop()
-            b = 0
-            c = 0
-            self.right(primary=90 + b, counter=-90 - c)
-            b += 90
-            c -= 90
+            self.right(primary=90, counter=-90)
+            time.sleep(1)
+            self.stop()
 
     def stylemove(self):
         for x in range(3):
