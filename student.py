@@ -91,14 +91,14 @@ class Piggy(PiggyParent):
             time.sleep(.1) 
             self.servo(2000)
             time.sleep(.1) 
-            self.right(primary=360, counter =-360)
-            time.sleep (4)
+            self.right(primary=340, counter =-340)
+            time.sleep (.5)
             self.stop()
             self.back()
             time.sleep(0.3)
             self.stop()
-            self.right(primary=90, counter=-90)
-            time.sleep(1)
+            self.right()
+            time.sleep(.5)
             self.stop()
 
     def stylemove(self):
@@ -106,17 +106,17 @@ class Piggy(PiggyParent):
             a = 0
             b = 0
             self.fwd()
-            time.sleep(1+a)
+            time.sleep(.25+a)
             self.stop()
             self.servo(1000)
-            time.sleep(1)
+            time.sleep(.5)
             self.back()
-            time.sleep(1+b)
+            time.sleep(0.25+b)
             self.stop()
             self.servo(2000)
-            time.sleep(1)
-            a += 0.5
-            b += 0.5
+            time.sleep(.5)
+            a += .5
+            b += .5
 
     def sliding(self):
         for x in range(2):
