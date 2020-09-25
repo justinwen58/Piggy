@@ -63,6 +63,9 @@ class Piggy(PiggyParent):
         for x in range(1):
             self.stylemove()
             self.gangnamstyle()
+            #self.circledance()
+            #self.sliding()
+
             # call other dance moves
 
     def safe_to_dance(self):
