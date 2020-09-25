@@ -115,6 +115,30 @@ class Piggy(PiggyParent):
             a += 0.5
             b += 0.5
 
+    def sliding(self):
+        for x in range(2):
+            self.right(primary=360, counter =-360)
+            time.sleep (2)
+            self.stop()
+            self.servo(1000) 
+            time.sleep(.5)
+            self.servo(2000)
+            time.sleep(.5)
+
+    def circledance(self):
+        for x in range(4):
+             self.servo(2000) 
+             time.sleep(.125)
+             self.servo(1000)
+             self.right() 
+             time.sleep(.5) 
+             self.stop()
+        self.servo(2000) 
+        time.sleep(1)
+        self.servo(1000)
+        time.sleep(1)
+
+
            
 
     def run(self):
