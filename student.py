@@ -64,8 +64,8 @@ class Piggy(PiggyParent):
             return False
         
         for x in range(1):
-            self.stylemove()
-            self.gangnamstyle()
+            self.sliding()
+            self.circledance()
             #self.circledance()
             #self.sliding()
 
