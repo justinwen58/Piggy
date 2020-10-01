@@ -64,8 +64,7 @@ class Piggy(PiggyParent):
             return False
         
         for x in range(1):
-            self.sliding()
-            self.circledance()
+            self.mikesdancef()
             #self.circledance()
             #self.sliding()
 
@@ -152,12 +151,12 @@ class Piggy(PiggyParent):
         self.servo(1000)
         time.sleep(.5)
 
-    def mikesdance(self):
+    def mikesdancef(self):
         for x in range(2):
             for x in range(6):
                 self.right()
                 self.left()
-            self.turn_by_deg(-360)
+            self.turn_by_deg(-270)
                 
 
            
