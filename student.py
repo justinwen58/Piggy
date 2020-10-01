@@ -152,11 +152,15 @@ class Piggy(PiggyParent):
     def mikesdancef(self):
         for x in range(2):
             for x in range(6):
-                self.right(primary=60, counter=40)
+                self.right(primary=80, counter=30)
                 time.sleep(.5)
-                self.left(primary=60, counter=40)
+                self.servo(1000)
+                time.sleep(.125)
+                self.left(primary=80, counter=30)
                 time.sleep(.5)
-            self.turn_by_deg(-270)
+                self.servo(2000)
+                time.sleep(.125)
+            self.turn_by_deg(-360)
             time.sleep(.75)
                 
 
