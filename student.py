@@ -133,7 +133,7 @@ class Piggy(PiggyParent):
         for x in range(2):
             self.turn_by_deg(-350)
             time.sleep (2)
-            self.stop()
+            
             self.servo(1000) 
             time.sleep(.5)
             self.servo(2000)
@@ -146,7 +146,7 @@ class Piggy(PiggyParent):
              self.servo(1000)
              self.turn_by_deg(90)
              time.sleep(.5) 
-             self.stop()
+           
         self.servo(2000) 
         time.sleep(.5)
         self.servo(1000)
