@@ -69,8 +69,9 @@ class Piggy(PiggyParent):
             self.turn_by_deg(-180)
             self.mikesdanceback()
             self.stylemove()
-            self.circledance()
-            self.sliding()
+            for x in range(2)
+                self.circledance()
+                self.sliding()
 
 
     def safe_to_dance(self):
@@ -140,9 +141,9 @@ class Piggy(PiggyParent):
             b += .5
 
     def sliding(self):
-        """turning 360 two times with head shaking"""
+        """turning about 45 two times with head shaking"""
         for x in range(2):
-            #360 turns
+            #turns
             self.turn_by_deg(-350)
             time.sleep (2)  
 
