@@ -69,7 +69,7 @@ class Piggy(PiggyParent):
             self.turn_by_deg(-180)
             self.mikesdanceback()
             self.stylemove()
-            for x in range(2)
+            for x in range(2):
                 self.circledance()
                 self.sliding()
 
