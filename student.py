@@ -64,9 +64,9 @@ class Piggy(PiggyParent):
             return False
         
         for x in range(1):
-            self.mikesdancef()
+            self.mikesdancefor()
             self.turn_by_deg(-180)
-            self.mikesdanceb()
+            self.mikesdanceback()
             #self.circledance()
             #self.sliding()
 
@@ -139,6 +139,7 @@ class Piggy(PiggyParent):
             b += .5
 
     def sliding(self):
+        """turning 360 two times with head shaking"""
         for x in range(2):
             self.turn_by_deg(-350)
             time.sleep (2)  
@@ -148,6 +149,7 @@ class Piggy(PiggyParent):
             time.sleep(.5)
 
     def circledance(self):
+        """make 90 angle turn four times"""
         for x in range(4):
              self.servo(2000) 
              time.sleep(.125)
@@ -160,30 +162,38 @@ class Piggy(PiggyParent):
         time.sleep(.5)
 
     def mikesdancefor(self):
+        """Shimmy forward and make a 180 turn and shimmy back with the head shaking"""
         for x in range(2):
             for x in range(5):
+                #right turn
                 self.right(primary=80, counter=30)
                 time.sleep(.5)
                 self.servo(1000)
                 time.sleep(.125)
+                #left turn
                 self.left(primary=80, counter=30)
                 time.sleep(.5)
                 self.servo(2000)
                 time.sleep(.125)
+            #180 turn
             self.turn_by_deg(-180)
             time.sleep(.75)
                 
     def mikesdanceback(self):
+        """Shimmy backward and make a 180 turn and shimmy back with the head shaking"""
         for x in range(2):
             for x in range(5):
+                #back right
                 self.right(primary=-80, counter=-30)
                 time.sleep(.5)
                 self.servo(1000)
                 time.sleep(.125)
+                #back left
                 self.left(primary=-80, counter=-30)
                 time.sleep(.5)
                 self.servo(2000)
                 time.sleep(.125)
+            #180 turn
             self.turn_by_deg(-180)
             time.sleep(.75)
 
