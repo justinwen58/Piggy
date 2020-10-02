@@ -95,38 +95,46 @@ class Piggy(PiggyParent):
 
    
     def gangnamstyle(self):
+        """forward and turning 180 and back up"""
         for x in range(6):
             self.fwd()
             time.sleep(0.3)
             self.stop()
+            
+            #Glancing for audience before ready to turn
             self.servo(1000)
             time.sleep(.1) 
             self.servo(2000)
             time.sleep(.1) 
+            
+            #An 180 turning and backward
             self.right(primary=340, counter =-340)
             time.sleep (.5)
             self.stop()
             self.back()
             time.sleep(0.3)
             self.stop()
-            self.right()
-            time.sleep(.5)
-            self.stop()
+            
 
     def stylemove(self):
+        """swiftly run forward and backward by increasing distance for each time"""
         for x in range(3):
+            #int created
             a = 0
             b = 0
+            #forward
             self.fwd()
             time.sleep(.25+a)
             self.stop()
             self.servo(1000)
             time.sleep(.5)
+            #backward
             self.back()
             time.sleep(0.25+b)
             self.stop()
             self.servo(2000)
             time.sleep(.5)
+            #amount of time adding while running forward and back
             a += .5
             b += .5
 
