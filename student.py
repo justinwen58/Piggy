@@ -65,6 +65,8 @@ class Piggy(PiggyParent):
         
         for x in range(1):
             self.mikesdancef()
+            self.turn_by_deg(-180)
+            self.mikesdanceb()
             #self.circledance()
             #self.sliding()
 
