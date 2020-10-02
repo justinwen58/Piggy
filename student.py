@@ -64,13 +64,14 @@ class Piggy(PiggyParent):
             return False
         
         for x in range(1):
+            self.gangnamstyle()
             self.mikesdancefor()
             self.turn_by_deg(-180)
             self.mikesdanceback()
-            #self.circledance()
-            #self.sliding()
+            self.stylemove()
+            self.circledance()
+            self.sliding()
 
-            # call other dance moves
 
     def safe_to_dance(self):
         """ Does a 360 distance check and returns true if safe """
