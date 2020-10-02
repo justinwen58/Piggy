@@ -142,8 +142,10 @@ class Piggy(PiggyParent):
     def sliding(self):
         """turning 360 two times with head shaking"""
         for x in range(2):
+            #360 turns
             self.turn_by_deg(-350)
             time.sleep (2)  
+
             self.servo(1000) 
             time.sleep(.5)
             self.servo(2000)
@@ -155,6 +157,7 @@ class Piggy(PiggyParent):
              self.servo(2000) 
              time.sleep(.125)
              self.servo(1000)
+             #angles adjust for 90 or less
              self.turn_by_deg(90)
              time.sleep(.5)       
         self.servo(2000) 
