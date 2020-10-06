@@ -231,7 +231,7 @@ class Piggy(PiggyParent):
                 self.stop()
                 print("no stop it!")
                 self.back()
-                time.sleep(.1)
+                time.sleep(1)
                 self.turn_by_deg(90)
                 time.sleep(.1)
             else:
