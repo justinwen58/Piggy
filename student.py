@@ -222,7 +222,7 @@ class Piggy(PiggyParent):
     def quick_check(self):
         """move servo in three angles, performs a distance check and return to False is incorrect distance presented"""
         #look to three directions to check if they are all safe to move
-        for ang in range(self.MIDPOINT - 100, self.MIDPOINT + 101, 100):
+        for ang in range(self.MIDPOINT - 200, self.MIDPOINT + 201, 200):
             self.servo(ang)
             time.sleep(0.5)
             #freak out if the distance is not safe
@@ -238,6 +238,12 @@ class Piggy(PiggyParent):
         #so long as we see something close, keep turning on
         while self.read_distance() <  self.SAFEDISTANCE:
             self.left(primary=40, counter=-40)
+            time.sleep(.05)
+        #make sure the right portion is also safe after making a left turn thus adjust servo to right 
+        self.servo(self.MIDPOINT + 200)
+        #in the same process check again from different perspective
+        while self.read_distance() <  self.SAFEDISTANCE:
+            self.left(primary=30, counter=-30)
             time.sleep(.05)
         #stop motion before we end the method
         self.stop()
