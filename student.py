@@ -221,27 +221,38 @@ class Piggy(PiggyParent):
 
     def quick_check(self):
         """move servo in three angles, performs a distance check and return to False is incorrect distance presented"""
+        #look to three directions to check if they are all safe to move
         for ang in range(self.MIDPOINT - 100, self.MIDPOINT + 101, 100):
             self.servo(ang)
             time.sleep(0.5)
+            #freak out if the distance is not safe
             if self.read_distance() <  self.SAFEDISTANCE:
                 return False
+        #correct after check all three angles
         return True
+
+    def turn_until_clear(self):
+        """rotate right until no obstacle is seen"""
+        #make sure we are looking straight
+        self.servo(self.MIDPOINT)
+        #so long as we see something close, keep turning on
+        while self.read_distance() <  self.SAFEDISTANCE:
+            self.left(primary=40, counter=-40)
+            time.sleep(.05)
+        #stop motion before we end the method
+        self.stop()
+
     def nav(self):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         print("-------- [ Press CTRL + C to stop me ] --------\n")
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         
-        # TODO: build self.quick_check() that does a fast, 3-part check instead of read_distance
-        self.fwd()
+        
+       
         while True:
             if not self.quick_check():  
                 self.stop()
-                print("no stop it!")
-                self.back()
-                time.sleep(1)
-                self.turn_by_deg(90)
-                time.sleep(.1)
+                self.turn_until_clear()
             else:
                 self.fwd()
         
