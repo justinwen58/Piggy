@@ -219,6 +219,14 @@ class Piggy(PiggyParent):
         """Does a 360 scan and returns the number of obstacles it sees"""
         pass
 
+    def quick_check(self):
+"""move servo in three angles, performs a distance check and return to False is incorrect distance presented"""
+        for ang in raneg(self.MIDPOINT - 100, self.MIDPOINT + 101, 100):
+            self.servo(ang)
+            time.sleep(0.5)
+            if self.read_distance() <  self.SAFEDISTANCE:
+                return False
+        return True
     def nav(self):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         print("-------- [ Press CTRL + C to stop me ] --------\n")
@@ -227,7 +235,7 @@ class Piggy(PiggyParent):
         # TODO: build self.quick_check() that does a fast, 3-part check instead of read_distance
         self.fwd()
         while True:
-            if self.read_distance() < self.CLOSEDISTANCE:  
+            if not self.quick_check():  
                 self.stop()
                 print("no stop it!")
                 self.back()
