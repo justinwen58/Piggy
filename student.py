@@ -220,8 +220,8 @@ class Piggy(PiggyParent):
         pass
 
     def quick_check(self):
-"""move servo in three angles, performs a distance check and return to False is incorrect distance presented"""
-        for ang in raneg(self.MIDPOINT - 100, self.MIDPOINT + 101, 100):
+        """move servo in three angles, performs a distance check and return to False is incorrect distance presented"""
+        for ang in range(self.MIDPOINT - 100, self.MIDPOINT + 101, 100):
             self.servo(ang)
             time.sleep(0.5)
             if self.read_distance() <  self.SAFEDISTANCE:
