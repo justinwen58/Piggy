@@ -220,6 +220,8 @@ class Piggy(PiggyParent):
         """Does a 360 scan and returns the number of obstacles it sees"""
         #print the scan
         self.scan()
+        #sort the scan data for easier analysis
+        self.scan_data = OrderedDict(sorted(self.scan_data.items()))
         #print the results
         for angle in self.scan_data:
             dist = self.scan_data[angle]
