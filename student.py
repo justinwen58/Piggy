@@ -220,7 +220,8 @@ class Piggy(PiggyParent):
         #print the scan
         self.scan()
         #print the results
-        for angle, dist in enumerate(self.scan_data):
+        for angle in self.scan_data:
+            dist = self.scan_data[angle]
             print("ANGLE:  %d /  DIST:  %d" % (angle, dist))
 
     def quick_check(self):
