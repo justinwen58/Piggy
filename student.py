@@ -222,11 +222,23 @@ class Piggy(PiggyParent):
         """Does a 360 scan and returns the number of obstacles it sees"""
         #print the scan
         self.scan()
+        #find out how many obstacles there were during scanning process
+        seeanobject = False
+        count = 0
     
         #print the results
         for angle in self.scan_data:
             dist = self.scan_data[angle]
+            if dist < self.SAFEDISTANCE and not seeanobject:
+                seeanobject = True
+                count += 1
+                print("I see something")
+            elif dist > self.SAFEDISTANCE and seeanobject:
+                seeanobject = False
+                print("no object emergy my brother")
+
             print("ANGLE:  %d /  DIST:  %d" % (angle, dist))
+        print("I saw %d objects % count")
 
     def quick_check(self):
         """move servo in three angles, performs a distance check and return to False is incorrect distance presented"""
