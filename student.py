@@ -235,10 +235,10 @@ class Piggy(PiggyParent):
                 print("I see something")
             elif dist > self.SAFEDISTANCE and seeanobject:
                 seeanobject = False
-                print("no object emergy my brother")
+                print("no object emerge my brother")
 
             print("ANGLE:  %d /  DIST:  %d" % (angle, dist))
-        print("I saw %d objects % count")
+        print("ahhh I saw %d objects" % count)
 
     def quick_check(self):
         """move servo in three angles, performs a distance check and return to False is incorrect distance presented"""
