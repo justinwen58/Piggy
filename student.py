@@ -98,6 +98,34 @@ class Piggy(PiggyParent):
         time.sleep(.25) # give your head time to move
         self.servo(2000) # look left
 
+    def right_or_left(self):
+        """ Should I turn left or right? 
+            Returns a 'r' or 'l' based on scan data """
+        self.scan()
+        
+        right_sum = 0
+        right_avg = 0
+        left_sum = 0
+        left_avg = 0
+        
+        # analyze scan results
+        for angle in self.scan_data:
+            # average up the distances on the right side
+            if angle < self.MIDPOINT:
+                right_sum += self.scan_data[angle]
+                right_avg += 1
+            else:
+                left_sum += self.scan_data[angle]
+                left_avg += 1
+        
+        # calculate averages
+        left_avg = left_sum / left_avg
+        right_avg = right_sum / right_avg
+
+        if left_avg > right_avg: 
+            return 'l'
+        else:
+            return 'r'
    
     def gangnamstyle(self):
         """forward and turning 180 and back up"""
@@ -279,7 +307,11 @@ class Piggy(PiggyParent):
         while True:
             if not self.quick_check():  
                 self.stop()
-                self.turn_until_clear()
+                #self.turn_until_clear()
+                if 'l' in self.right_or_left():
+                    self.turn_by_deg(-45)
+                else:
+                    self.turn_by_deg(45)
             else:
                 self.fwd()
         
