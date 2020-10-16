@@ -275,7 +275,7 @@ class Piggy(PiggyParent):
             self.servo(ang)
             time.sleep(0.5)
             #freak out if the distance is not safe
-            if self.read_distance() <  self.SAFEDISTANCE:
+            if self.read_distance() <  self.SAFEDISTANCE + 50:
                 return False
         #correct after check all three angles
         return True
@@ -285,7 +285,7 @@ class Piggy(PiggyParent):
         #make sure we are looking straight
         self.servo(self.MIDPOINT)
         #so long as we see something close, keep turning on
-        while self.read_distance() <  self.SAFEDISTANCE + 100:
+        while self.read_distance() <  self.SAFEDISTANCE:
             self.left(primary=40, counter=-40)
             time.sleep(.05)
         #make sure the right portion is also safe after making a left turn thus adjust servo to right 
@@ -316,7 +316,8 @@ class Piggy(PiggyParent):
                     #self.turn_to_deg(exit_ang)
                     self.turn_until_clear()
                 elif 'l' in self.right_or_left():
-
+                    self.back()
+                    time.sleep(0.3)
                     self.turn_by_deg(-45)
                 else:
                     self.turn_by_deg(45)
