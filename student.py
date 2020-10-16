@@ -318,9 +318,9 @@ class Piggy(PiggyParent):
                 elif 'l' in self.right_or_left():
                     self.back()
                     time.sleep(0.3)
-                    self.turn_by_deg(-45)
+                    self.turn_by_deg(315)
                 else:
-                    self.turn_by_deg(45)
+                    self.turn_by_deg(-315)
             else:
                 self.fwd()
         
