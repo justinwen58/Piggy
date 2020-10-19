@@ -310,8 +310,8 @@ class Piggy(PiggyParent):
         while True:
             if not self.quick_check():  
                 turn_count += 1
-                self.back()
-                time.sleep(0.3)
+                self.back(right=100, left=100)
+                time.sleep(0.4)
                 self.stop()
                 #self.turn_until_clear()
                 if turn_count > 3 and turn_count % 5 == 0:
@@ -323,7 +323,7 @@ class Piggy(PiggyParent):
                 else:
                     self.turn_by_deg(-315)
             else:
-                self.fwd()
+                self.fwd(rigth=100, left=100)
         
         # TODO: scan so we can decide left or right
         # TODO: average the right side of the scan dict
