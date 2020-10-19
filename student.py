@@ -314,7 +314,7 @@ class Piggy(PiggyParent):
                 time.sleep(0.4)
                 self.stop()
                 self.right(primary=-90, counter=90)
-                time.sleep(1)
+                time.sleep(0.1)
                 
                 #self.turn_until_clear()
                 if turn_count > 3 and turn_count % 5 == 0:
