@@ -313,8 +313,8 @@ class Piggy(PiggyParent):
                 self.back(right=90, left=90)
                 time.sleep(0.4)
                 self.stop()
-                self.right(primary=-90, counter=90)
-                time.sleep(0.08)
+                self.left(primary=100, counter=-100)
+                time.sleep(0.5)
                 self.stop()
                 
                 #self.turn_until_clear()
