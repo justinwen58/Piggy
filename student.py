@@ -315,6 +315,7 @@ class Piggy(PiggyParent):
                 self.stop()
                 self.right(primary=-90, counter=90)
                 time.sleep(0.08)
+                self.stop()
                 
                 #self.turn_until_clear()
                 if turn_count > 3 and turn_count % 5 == 0:
@@ -322,10 +323,10 @@ class Piggy(PiggyParent):
                     self.turn_until_clear()
                 elif 'l' in self.right_or_left():
                     
-                    self.turn_by_deg(315)
+                    self.turn_by_deg(-60)
                     
                 else:
-                    self.turn_by_deg(-315)
+                    self.turn_by_deg(60)
                     
             else:
                 self.fwd(right=100, left=100)
