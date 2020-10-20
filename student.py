@@ -310,8 +310,9 @@ class Piggy(PiggyParent):
         while True:
             if not self.quick_check():  
                 turn_count += 1
-                self.back(right=100, left=100)
+                self.fwd(right=-100, left=-100)
                 time.sleep(0.4)
+                self.stop()
                 
 
                 #self.turn_until_clear()
