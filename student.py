@@ -18,8 +18,8 @@ class Piggy(PiggyParent):
         ''' 
         MAGIC NUMBERS <-- where we hard-code our settings
         '''
-        self.LEFT_DEFAULT = 100
-        self.RIGHT_DEFAULT = 100
+        self.LEFT_DEFAULT = 60
+        self.RIGHT_DEFAULT = 60
         self.SAFEDISTANCE = 300
         self.CLOSEDISTANCE = 50
         self.MIDPOINT = 1500 #robot17 # what servo command (1000-2000) is straight forward for your bot?
@@ -310,11 +310,11 @@ class Piggy(PiggyParent):
         while True:
             if not self.quick_check():  
                 turn_count += 1
-                self.back(right=100, left=100)
+                self.back(right=90, left=90)
                 time.sleep(0.4)
                 self.stop()
                 self.right(primary=-90, counter=90)
-                time.sleep(0.1)
+                time.sleep(0.08)
                 
                 #self.turn_until_clear()
                 if turn_count > 3 and turn_count % 5 == 0:
@@ -328,7 +328,6 @@ class Piggy(PiggyParent):
                     self.turn_by_deg(-315)
                     
             else:
-                self.stop()
                 self.fwd(right=100, left=100)
         
         # TODO: scan so we can decide left or right
