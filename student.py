@@ -20,7 +20,7 @@ class Piggy(PiggyParent):
         '''
         self.LEFT_DEFAULT = 60
         self.RIGHT_DEFAULT = 60
-        self.SAFEDISTANCE = 350
+        self.SAFEDISTANCE = 300
         self.CLOSEDISTANCE = 50
         self.MIDPOINT = 1500 #robot17 # what servo command (1000-2000) is straight forward for your bot?
         self.set_motor_power(self.MOTOR_LEFT + self.MOTOR_RIGHT, 0)
@@ -275,7 +275,7 @@ class Piggy(PiggyParent):
             self.servo(ang)
             time.sleep(0.5)
             #freak out if the distance is not safe
-            if self.read_distance() <  self.SAFEDISTANCE + 100:
+            if self.read_distance() <  self.SAFEDISTANCE + 20:
                 return False
         #correct after check all three angles
         return True
@@ -321,13 +321,13 @@ class Piggy(PiggyParent):
                     self.turn_until_clear()
                 elif 'l' in self.right_or_left():
                     
-                    self.turn_by_deg(-60)
+                    self.turn_by_deg(-35)
                     
                 else:
-                    self.turn_by_deg(60)
+                    self.turn_by_deg(35)
                     
             else:
-                self.fwd(right=90, left=90)
+                self.fwd(right=100, left=100)
         
         # TODO: scan so we can decide left or right
         # TODO: average the right side of the scan dict
