@@ -20,7 +20,7 @@ class Piggy(PiggyParent):
         '''
         self.LEFT_DEFAULT = 60
         self.RIGHT_DEFAULT = 60
-        self.SAFEDISTANCE = 300
+        self.SAFEDISTANCE = 330
         self.CLOSEDISTANCE = 50
         self.MIDPOINT = 1500 #robot17 # what servo command (1000-2000) is straight forward for your bot?
         self.set_motor_power(self.MOTOR_LEFT + self.MOTOR_RIGHT, 0)
@@ -240,7 +240,7 @@ class Piggy(PiggyParent):
 
     def scan(self):
         """Sweep the servo and populate the scan_data dictionary"""
-        for angle in range(self.MIDPOINT-450, self.MIDPOINT+450, 45):
+        for angle in range(self.MIDPOINT-450, self.MIDPOINT+451, 45):
             self.servo(angle)
             self.scan_data[angle] = self.read_distance()
         #sort the scan data for easier analysis
@@ -321,13 +321,13 @@ class Piggy(PiggyParent):
                     self.turn_until_clear()
                 elif 'l' in self.right_or_left():
                     
-                    self.turn_by_deg(-35)
+                    self.turn_by_deg(-30)
                     
                 else:
-                    self.turn_by_deg(35)
+                    self.turn_by_deg(30)
                     
             else:
-                self.fwd(right=100, left=100)
+                self.fwd(right=70, left=70)
         
         # TODO: scan so we can decide left or right
         # TODO: average the right side of the scan dict
