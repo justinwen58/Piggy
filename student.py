@@ -321,7 +321,7 @@ class Piggy(PiggyParent):
                     self.turn_until_clear()
                 elif 'l' in self.right_or_left():
                     
-                    self.turn_by_deg(-35)
+                    self.turn_by_deg(-25)
                     
                 else:
                     self.turn_by_deg(35)
