@@ -306,7 +306,7 @@ class Piggy(PiggyParent):
         # because I've written down the exit's angle, at anytime I can use:
         # self.turn_to_deg(exit_ang)
         turn_count = 0
-       
+        self.turn_by_deg(45)
         while True:
             if not self.quick_check():  
                 turn_count += 1
